@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<p th:text=${color}>
+
+</p>
+<p th:text="${user.getName()}">
+
+</p>
+<div th:each="i:${user}">
+    <p th:text="${i.Name}">
+    </p>
+    <span th:text="${i.Name}"></span>
+</div>
+
+<img src="http://images.nowcoder.com/head/301t.png">
+</body>
+</html>
