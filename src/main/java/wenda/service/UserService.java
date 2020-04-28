@@ -87,13 +87,16 @@ public class UserService {
         LoginTicket ticket = new LoginTicket();
         ticket.setUserId(user_id);
         Date nowDate = new Date();
-        nowDate.setTime(60*60*1000 + nowDate.getTime());
+        nowDate.setTime(nowDate.getTime() + 1000*3600*24);
         ticket.setExpired(nowDate);
         ticket.setStatus(0);
         // UUID生成的随机ticket有"-"，要替换掉
         ticket.setTicket(UUID.randomUUID().toString().replaceAll("-",""));
         loginTicketDAO.addTicket(ticket);
         return ticket.getTicket(); // 返回ticket
+    }
+    public void logout(String ticket){
+        loginTicketDAO.updateStatus(ticket,1);
     }
 
     public User getUser(int id) {

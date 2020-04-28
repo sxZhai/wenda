@@ -79,4 +79,10 @@ public class LoginController {
         }
     }
 
+    @GetMapping(value = "/logout")
+    public String logout(@CookieValue("ticket") String ticket) {
+        userService.logout(ticket);
+        return "redirect:/";
+    }
+
 }
