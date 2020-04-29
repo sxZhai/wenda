@@ -50,7 +50,8 @@ public class LoginController {
     }
 
     @GetMapping(path = {"/reglogin"})
-    public String reglogin(Model model) {
+    public String reglogin(Model model,@RequestParam(value = "next", required = false) String next) {
+        model.addAttribute("next",next);
         return "login";
     }
 

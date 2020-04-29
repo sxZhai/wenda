@@ -5,19 +5,22 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupport;
+import wenda.interceptor.LoginRequiredInterceptor;
 import wenda.interceptor.PassportInterceptor;
+
+import javax.annotation.Resource;
 
 @Component
 public class ForumConfiguration extends WebMvcConfigurationSupport {
     @Autowired
     PassportInterceptor passportInterceptor;
-//    @Autowired
-//    LoginRequiredInterceptor loginRequiredInterceptor;
+    @Resource
+    LoginRequiredInterceptor loginRequiredInterceptor;
 
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
         registry.addInterceptor(passportInterceptor);
-        //registry.addInterceptor(loginRequiredInterceptor).addPathPatterns("/user/*");
+        registry.addInterceptor(loginRequiredInterceptor).addPathPatterns("/user/*");
         super.addInterceptors(registry);
     }
 

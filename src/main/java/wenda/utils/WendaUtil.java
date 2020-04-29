@@ -1,6 +1,7 @@
 package wenda.utils;
 
 
+import com.alibaba.fastjson.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -15,27 +16,27 @@ public class WendaUtil {
     public static int SYSTEMCONTROLLER_USERID = 1;
 
     // Json返回格式封装,所有返回json前端js都有对应处理
-//    public static String getJsonString(int code) {
-//        JSONObject json = new JSONObject();
-//        json.put("code", code);
-//        return json.toJSONString();
-//    }
-//
-//    public static String getJsonString(int code, String msg) {
-//        JSONObject json = new JSONObject();
-//        json.put("code", code);
-//        json.put("msg", msg);
-//        return json.toJSONString();
-//    }
-//
-//    public static String getJsonString(int code, Map<String, Object> map) {
-//        JSONObject json = new JSONObject();
-//        json.put("code", code);
-//        for (Map.Entry<String, Object> entry : map.entrySet()) {
-//            json.put(entry.getKey(), entry.getValue());
-//        }
-//        return json.toJSONString();
-//    }
+    public static String getJsonString(int code) {
+        JSONObject json = new JSONObject();
+        json.put("code", code);
+        return json.toJSONString();
+    }
+
+    public static String getJsonString(int code, String msg) {
+        JSONObject json = new JSONObject();
+        json.put("code", code);
+        json.put("msg", msg);
+        return json.toJSONString();
+    }
+
+    public static String getJsonString(int code, Map<String, Object> map) {
+        JSONObject json = new JSONObject();
+        json.put("code", code);
+        for (Map.Entry<String, Object> entry : map.entrySet()) {
+            json.put(entry.getKey(), entry.getValue());
+        }
+        return json.toJSONString();
+    }
 
     // MD5加密方法封装
     public static String MD5(String key) {
