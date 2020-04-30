@@ -39,9 +39,9 @@ public class QuestionService {
     }
 
     //更新评论的数量
-//    public int updateCommentCount(int id, int comment_count) {
-//        return questionDAO.updateCommentCount(id, comment_count);
-//    }
+    public int updateCommentCount(int id, int comment_count) {
+        return questionDAO.updateCommentCount(id, comment_count);
+    }
 
 
 }

@@ -173,36 +173,36 @@
             <div id="zh-question-detail" class="zm-item-rich-text zm-editable-status-normal">
                 <div th:utext="${question.content}" class="zm-editable-content"></div>
             </div>
-            <div class="zm-side-section">
-                <div class="zm-side-section-inner" id="zh-question-side-header-wrap">
+<!--            <div class="zm-side-section">-->
+<!--                <div class="zm-side-section-inner" id="zh-question-side-header-wrap">-->
 
 
-                    <button th:if="${followed}" th:attr="data-id=${question.id}" class="follow-button zg-follow zg-btn-white js-follow-question" data-id=""
-                            data-status="1">
-                        取消关注
-                    </button>
+<!--                    <button th:if="${followed}" th:attr="data-id=${question.id}" class="follow-button zg-follow zg-btn-white js-follow-question" data-id=""-->
+<!--                            data-status="1">-->
+<!--                        取消关注-->
+<!--                    </button>-->
 
-                    <button th:if="${!followed}" th:attr="data-id=${question.id}" class="follow-button zg-follow zg-btn-green js-follow-question" data-id="">
-                        关注问题
-                    </button>
+<!--                    <button th:if="${!followed}" th:attr="data-id=${question.id}" class="follow-button zg-follow zg-btn-green js-follow-question" data-id="">-->
+<!--                        关注问题-->
+<!--                    </button>-->
 
-                    <div class="zh-question-followers-sidebar">
-                        <div class="zg-gray-normal">
-                            <a href="">
-                                <strong th:text="${#lists.size(followUsers)}">9</strong></a>人关注该问题
-                        </div>
-                        <div class="list zu-small-avatar-list zg-clear">
+<!--                    <div class="zh-question-followers-sidebar">-->
+<!--                        <div class="zg-gray-normal">-->
+<!--                            <a href="">-->
+<!--                                <strong th:text="${#lists.size(followUsers)}">9</strong></a>人关注该问题-->
+<!--                        </div>-->
+<!--                        <div class="list zu-small-avatar-list zg-clear">-->
 
-                            <a th:each="followUser:${followUsers}" th:href="'/user/'+${followUser.get('id')}" data-tip="p$b$yi-yi-98-91-99" class="zm-item-link-avatar" href=""
-                               th:attr="data-original_title=${followUser.get('name')}" data-original_title="奕奕">
-                                <img th:src="${followUser.get('headUrl')}" src=""
-                                     class="zm-item-img-avatar">
-                            </a>
+<!--                            <a th:each="followUser:${followUsers}" th:href="'/user/'+${followUser.get('id')}" data-tip="p$b$yi-yi-98-91-99" class="zm-item-link-avatar" href=""-->
+<!--                               th:attr="data-original_title=${followUser.get('name')}" data-original_title="奕奕">-->
+<!--                                <img th:src="${followUser.get('headUrl')}" src=""-->
+<!--                                     class="zm-item-img-avatar">-->
+<!--                            </a>-->
 
-                        </div>
-                    </div>
-                </div>
-            </div>
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
             <div id="zh-question-answer-wrap" data-pagesize="10" class="zh-question-answer-wrapper navigable"
                  data-widget="navigable" data-navigable-options="{&quot;items&quot;: &quot;&gt;.zm-item-answer&quot;}"
                  data-init="{&quot;params&quot;: {&quot;url_token&quot;: 36301524, &quot;pagesize&quot;: 10, &quot;offset&quot;: 0}, &quot;nodename&quot;: &quot;QuestionAnswerListV2&quot;}">
@@ -216,32 +216,32 @@
 
                     <div class="zm-votebar goog-scrollfloater js-vote" th:attr="data-id=${comment.get('comment').id}" >
 
-                        <button th:if="${comment.get('liked') gt 0}" class="up js-like pressed" title="赞同">
-                            <i class="icon vote-arrow"></i>
-                            <span th:text="${comment.get('likeCount')}" class="count js-voteCount"></span>
-                            <span class="label sr-only">赞同</span>
-                        </button>
-                        <button th:if="${comment.get('liked') le 0}" class="up js-like" title="赞同">
+<!--                        <button th:if="${comment.get('liked') gt 0}" class="up js-like pressed" title="赞同">-->
+<!--                            <i class="icon vote-arrow"></i>-->
+<!--                            <span th:text="${comment.get('likeCount')}" class="count js-voteCount"></span>-->
+<!--                            <span class="label sr-only">赞同</span>-->
+<!--                        </button>-->
+<!--                        <button th:if="${comment.get('liked') le 0}" class="up js-like" title="赞同">-->
 
-                                <i class="icon vote-arrow"></i>
-                                <span th:text="${comment.get('likeCount')}" class="count js-voteCount"></span>
-                                <span class="label sr-only">赞同</span>
-                        </button>
+<!--                                <i class="icon vote-arrow"></i>-->
+<!--                                <span th:text="${comment.get('likeCount')}" class="count js-voteCount"></span>-->
+<!--                                <span class="label sr-only">赞同</span>-->
+<!--                        </button>-->
 
 
-                        <button th:if="${comment.get('liked') lt 0}" class="down js-dislike pressed" title="反对，不会显示你的姓名">
-                            <i class="icon vote-arrow"></i>
-                            <span class="label sr-only">反对，不会显示你的姓名</span>
-                        </button>
-                        <button th:if="${comment.get('liked') ge 0}" class="down js-dislike" title="反对，不会显示你的姓名">
-                                    <i class="icon vote-arrow"></i>
-                                    <span class="label sr-only">反对，不会显示你的姓名</span>
-                        </button>
+<!--                        <button th:if="${comment.get('liked') lt 0}" class="down js-dislike pressed" title="反对，不会显示你的姓名">-->
+<!--                            <i class="icon vote-arrow"></i>-->
+<!--                            <span class="label sr-only">反对，不会显示你的姓名</span>-->
+<!--                        </button>-->
+<!--                        <button th:if="${comment.get('liked') ge 0}" class="down js-dislike" title="反对，不会显示你的姓名">-->
+<!--                                    <i class="icon vote-arrow"></i>-->
+<!--                                    <span class="label sr-only">反对，不会显示你的姓名</span>-->
+<!--                        </button>-->
                     </div>
                     <div class="answer-head">
                         <div class="zm-item-answer-author-info">
                             <a class="zm-item-link-avatar avatar-link" th:href="'/user/'+${comment.get('user').id}" href="" target="_blank" data-tip="p$t$yingxiaodao">
-                                <img th:src="${comment.get('user').head_url}" src="" class="zm-list-avatar avatar"></a>
+                                <img th:src="${comment.get('user').headUrl}" src="" class="zm-list-avatar avatar"></a>
                             <a th:text="${comment.get('user').name}" th:href="'/user/'+${comment.get('user').id}" class="author-link" data-tip="p$t$yingxiaodao" target="_blank" href=""></a>
                         </div>
                         <div class="zm-item-vote-info">

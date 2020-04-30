@@ -22,6 +22,8 @@ public interface QuestionDAO {
     List<Question> selectLatestQuestions(@Param("userId") int userId, @Param("offset") int offset,
                                          @Param("limit") int limit);
 
-
-
+    @Update({"update ", TABLE_NAME, "set commentCount = #{commentCount} where id = #{id}"})
+    int updateCommentCount(int id, int commentCount);
 }
+
+

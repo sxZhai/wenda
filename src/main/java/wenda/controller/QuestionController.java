@@ -6,10 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import wenda.model.HostHolder;
-import wenda.model.Question;
-import wenda.model.User;
-import wenda.model.ViewObject;
+import wenda.model.*;
+import wenda.service.CommentService;
 import wenda.service.QuestionService;
 import wenda.service.UserService;
 import wenda.utils.WendaUtil;
@@ -26,8 +24,8 @@ public class QuestionController {
     HostHolder hostHolder;
     @Autowired
     UserService userService;
-//    @Autowired
-//    CommentService commentService;
+    @Autowired
+    CommentService commentService;
 //    @Autowired
 //    FollowService followService;
 //    @Autowired
@@ -45,22 +43,22 @@ public class QuestionController {
         model.addAttribute("question", question);
         model.addAttribute("user", userService.getUser(question.getUserId()));
         // question对应的评论、用户信息
-//        List<Comment> commentList = commentService.getCommentsByEntity(qid, EntityType.ENTITY_QUESTION);
-//        List<ViewObject> comments = new ArrayList<>();
-//        for (Comment comment : commentList) {
-//            ViewObject vo = new ViewObject();
-//            vo.set("comment", comment);
+        List<Comment> commentList = commentService.getCommentsByEntity(qid, EntityType.ENTITY_QUESTION);
+        List<ViewObject> comments = new ArrayList<>();
+        for (Comment comment : commentList) {
+            ViewObject vo = new ViewObject();
+            vo.set("comment", comment);
 //            if (hostHolder.getUser() == null) {
 //                vo.set("liked", 0);
 //            } else {
 //                vo.set("liked", likeService.getLikeStatus(hostHolder.getUser().getId(), EntityType.ENTITY_COMMENT, comment.getId()));
 //            }
 //            vo.set("likeCount", likeService.getLikeCount(EntityType.ENTITY_COMMENT, comment.getId()));
-//            vo.set("user", userService.getUser(comment.getUserId()));
-//            comments.add(vo);
-//        }
-//        model.addAttribute("comments", comments);
-//        List<ViewObject> followUsers = new ArrayList<>();
+            vo.set("user", userService.getUser(comment.getUserId()));
+            comments.add(vo);
+        }
+        model.addAttribute("comments", comments);
+        List<ViewObject> followUsers = new ArrayList<>();
         // 获取关注的用户信息
 //        List<Integer> users = followService.getFollowers(EntityType.ENTITY_QUESTION, qid, 20);
 //        for (Integer userId : users) {
