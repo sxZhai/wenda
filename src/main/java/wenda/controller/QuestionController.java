@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import wenda.model.*;
 import wenda.service.CommentService;
+import wenda.service.LikeService;
 import wenda.service.QuestionService;
 import wenda.service.UserService;
 import wenda.utils.WendaUtil;
@@ -28,8 +29,8 @@ public class QuestionController {
     CommentService commentService;
 //    @Autowired
 //    FollowService followService;
-//    @Autowired
-//    LikeService likeService;
+    @Autowired
+    LikeService likeService;
     //
 //    @Autowired
 //    EventProducer eventProducer;
@@ -48,12 +49,12 @@ public class QuestionController {
         for (Comment comment : commentList) {
             ViewObject vo = new ViewObject();
             vo.set("comment", comment);
-//            if (hostHolder.getUser() == null) {
-//                vo.set("liked", 0);
-//            } else {
-//                vo.set("liked", likeService.getLikeStatus(hostHolder.getUser().getId(), EntityType.ENTITY_COMMENT, comment.getId()));
-//            }
-//            vo.set("likeCount", likeService.getLikeCount(EntityType.ENTITY_COMMENT, comment.getId()));
+            if (hostHolder.getUser() == null) {
+                vo.set("liked", 0);
+            } else {
+                vo.set("liked", likeService.getLikeStatus(hostHolder.getUser().getId(), EntityType.ENTITY_COMMENT, comment.getId()));
+            }
+            vo.set("likeCount", likeService.getLikeCount(EntityType.ENTITY_COMMENT, comment.getId()));
             vo.set("user", userService.getUser(comment.getUserId()));
             comments.add(vo);
         }

@@ -216,27 +216,27 @@
 
                     <div class="zm-votebar goog-scrollfloater js-vote" th:attr="data-id=${comment.get('comment').id}" >
 
-<!--                        <button th:if="${comment.get('liked') gt 0}" class="up js-like pressed" title="赞同">-->
-<!--                            <i class="icon vote-arrow"></i>-->
-<!--                            <span th:text="${comment.get('likeCount')}" class="count js-voteCount"></span>-->
-<!--                            <span class="label sr-only">赞同</span>-->
-<!--                        </button>-->
-<!--                        <button th:if="${comment.get('liked') le 0}" class="up js-like" title="赞同">-->
+                        <button th:if="${comment.get('liked') gt 0}" class="up js-like pressed" title="赞同">
+                            <i class="icon vote-arrow"></i>
+                            <span th:text="${comment.get('likeCount')}" class="count js-voteCount"></span>
+                            <span class="label sr-only">赞同</span>
+                        </button>
+                        <button th:if="${comment.get('liked') le 0}" class="up js-like" title="赞同">
 
-<!--                                <i class="icon vote-arrow"></i>-->
-<!--                                <span th:text="${comment.get('likeCount')}" class="count js-voteCount"></span>-->
-<!--                                <span class="label sr-only">赞同</span>-->
-<!--                        </button>-->
+                                <i class="icon vote-arrow"></i>
+                                <span th:text="${comment.get('likeCount')}" class="count js-voteCount"></span>
+                                <span class="label sr-only">赞同</span>
+                        </button>
 
 
-<!--                        <button th:if="${comment.get('liked') lt 0}" class="down js-dislike pressed" title="反对，不会显示你的姓名">-->
-<!--                            <i class="icon vote-arrow"></i>-->
-<!--                            <span class="label sr-only">反对，不会显示你的姓名</span>-->
-<!--                        </button>-->
-<!--                        <button th:if="${comment.get('liked') ge 0}" class="down js-dislike" title="反对，不会显示你的姓名">-->
-<!--                                    <i class="icon vote-arrow"></i>-->
-<!--                                    <span class="label sr-only">反对，不会显示你的姓名</span>-->
-<!--                        </button>-->
+                        <button th:if="${comment.get('liked') lt 0}" class="down js-dislike pressed" title="反对，不会显示你的姓名">
+                            <i class="icon vote-arrow"></i>
+                            <span class="label sr-only">反对，不会显示你的姓名</span>
+                        </button>
+                        <button th:if="${comment.get('liked') ge 0}" class="down js-dislike" title="反对，不会显示你的姓名">
+                                    <i class="icon vote-arrow"></i>
+                                    <span class="label sr-only">反对，不会显示你的姓名</span>
+                        </button>
                     </div>
                     <div class="answer-head">
                         <div class="zm-item-answer-author-info">
