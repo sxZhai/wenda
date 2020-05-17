@@ -11,7 +11,7 @@ import wenda.interceptor.PassportInterceptor;
 import javax.annotation.Resource;
 
 @Component
-public class ForumConfiguration extends WebMvcConfigurationSupport {
+public class WendaConfiguration extends WebMvcConfigurationSupport {
     @Autowired
     PassportInterceptor passportInterceptor;
     @Resource

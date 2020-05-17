@@ -6,6 +6,9 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
+import wenda.async.EventModel;
+import wenda.async.EventProducer;
+import wenda.async.EventType;
 import wenda.model.Comment;
 import wenda.model.EntityType;
 import wenda.model.HostHolder;
@@ -24,8 +27,8 @@ public class CommentController {
     CommentService commentService;
     @Autowired
     QuestionService questionService;
-//    @Autowired
-//    EventProducer eventProducer;
+    @Autowired
+    EventProducer eventProducer;
 
     @PostMapping(value = {"/addComment"})
     public String addComment(int questionId, String content) {
@@ -46,7 +49,7 @@ public class CommentController {
             int count = commentService.getCommentCount(comment.getEntityId(), comment.getEntityType());
             questionService.updateCommentCount(comment.getEntityId(), count);
 //            // 推送异步事件
-//            eventProducer.fireEvent(new EventModel(MarkupTraceEvent.EventType.COMMENT).setActorId(comment.getUserId()).setEntityId(questionId));
+//            eventProducer.fireEvent(new EventModel(EventType.COMMENT).setActorId(comment.getUserId()).setEntityId(questionId));
         } catch (Exception e) {
             logger.error("增加评论失败" + e.getMessage());
         }

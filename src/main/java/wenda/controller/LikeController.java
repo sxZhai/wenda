@@ -4,6 +4,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import wenda.async.EventModel;
+import wenda.async.EventProducer;
+import wenda.async.EventType;
 import wenda.model.Comment;
 import wenda.model.EntityType;
 import wenda.model.HostHolder;
@@ -19,8 +22,8 @@ public class LikeController {
     HostHolder hostHolder;
     @Autowired
     CommentService commentService;
-//    @Autowired
-//    EventProducer eventProducer;
+    @Autowired
+    EventProducer eventProducer;
 
     @PostMapping(value = "/like")
     @ResponseBody
@@ -31,10 +34,10 @@ public class LikeController {
         // 获取点赞的那条评论
         Comment comment = commentService.getCommentById(commentId);
         // 异步队列发送私信给被赞人
-//        eventProducer.fireEvent(new EventModel(EventType.LIKE)
-//                .setActorId(hostHolder.getUser().getId()).setEntityId(commentId)
-//                .setEntityType(EntityType.ENTITY_COMMENT).setEntityOwnerId(comment.getEntityId())
-//                .setExts("questionId", String.valueOf(comment.getEntityId())));
+        eventProducer.fireEvent(new EventModel(EventType.LIKE)
+                .setActorId(hostHolder.getUser().getId()).setEntityId(commentId)
+                .setEntityType(EntityType.ENTITY_COMMENT).setEntityOwnerId(comment.getUserId())
+                .setExts("questionId", String.valueOf(comment.getEntityId())));
 
         // 返回前端点赞数
         long likeCount = likeService.like(hostHolder.getUser().getId(), EntityType.ENTITY_COMMENT, commentId);
