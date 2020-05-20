@@ -63,7 +63,7 @@ public class HomeController {
         vo.set("followeeCount", followService.getFolloweeCount(userId, EntityType.ENTITY_USER));
         vo.set("followerCount", followService.getFollowerCount(EntityType.ENTITY_USER, userId));
         if (hostHolder.getUser() != null) {
-            vo.set("followed", followService.isFollower(hostHolder.getUser().getId(), userId, EntityType.ENTITY_USER));
+            vo.set("followed", followService.isFollower(hostHolder.getUser().getId(), EntityType.ENTITY_USER, userId));
         } else {
             vo.set("followed", false);
         }
