@@ -8,7 +8,7 @@ public class JedisAdapter {
         System.out.println(String.format("%d,%s",index,obj.toString()));
     }
 
-    public static void main(String[] arg){
+    public static void mainx(String[] arg){
         Jedis jedis=new Jedis("redis://localhost:6379/9");
         jedis.flushDB();
 

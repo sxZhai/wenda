@@ -10,7 +10,7 @@ import wenda.service.SendMailService;
 
 import javax.annotation.Resource;
 
-@SpringBootTest
+//@SpringBootTest
 public class SendMail {
     @Resource
     private SendMailService mailService;

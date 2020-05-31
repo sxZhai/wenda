@@ -19,23 +19,23 @@ import java.util.Random;
 
 
 class ReadDataTests {
-    @Resource
-    UserDAO userDAO;
-    @Resource
-    QuestionDAO questionDAO;
-    @Autowired
-    QuestionService questionService;
-    @Autowired
-    UserService userService;
-
-    @Test
-    public void contextLoads() {
-        Random random = new Random();
-        for (int i = 0; i < 9; ++i) {
-            System.out.print(userService.getUser(i+1).getHeadUrl());
-        }
+//    @Resource
+//    UserDAO userDAO;
+//    @Resource
+//    QuestionDAO questionDAO;
+//    @Autowired
+//    QuestionService questionService;
+//    @Autowired
+//    UserService userService;
+//
+//    @Test
+//    public void contextLoads() {
+//        Random random = new Random();
+//        for (int i = 0; i < 9; ++i) {
+//            System.out.print(userService.getUser(i+1).getHeadUrl());
+//        }
 
         //System.out.print(questionDAO.selectLatestQuestions(0,0,10));
 
-    }
+//    }
 }

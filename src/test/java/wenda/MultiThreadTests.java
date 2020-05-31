@@ -180,7 +180,7 @@ public class MultiThreadTests {
             }
         }
     }
-    public static void main(String[] argv){
+    public static void mainx(String[] argv){
         //testThread();
         //testBlockingDeque();
         //testThreadLocal();
